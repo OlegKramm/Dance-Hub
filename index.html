@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fullscreen video</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Фуллскриннпшепше -->
+        <div class="full-screen">
+            <div class="full-screen__body">
+                <div class="full-screen__title">Kizomba</div>
+                <div class="full-screen__text">це круто</div>
+            </div>
+            <video muted autoplay autoplay preload="metadata" class="full-screen__video" id="myVideo">
+
+            </video>
+        </div>
+        <div class="content">
+            <div class="content__container">
+                <h1 style="text-align: center;">Про Нас</h1>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, possimus obcaecati, ullam impedit
+                    perspiciatis praesentium autem laudantium cumque doloribus harum nulla atque corrupti! Impedit
+                    quidem ut adipisci excepturi aliquam. Impedit.
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, possimus obcaecati, ullam impedit
+                    perspiciatis praesentium autem laudantium cumque doloribus harum nulla atque corrupti! Impedit
+                    quidem ut adipisci excepturi aliquam. Impedit.
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, possimus obcaecati, ullam impedit
+                    perspiciatis praesentium autem laudantium cumque doloribus harum nulla atque corrupti! Impedit
+                    quidem ut adipisci excepturi aliquam. Impedit.
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, possimus obcaecati, ullam impedit
+                    perspiciatis praesentium autem laudantium cumque doloribus harum nulla atque corrupti! Impedit
+                    quidem ut adipisci excepturi aliquam. Impedit.
+                </p>
+            </div>
+            <div class="content__gallery">
+                <img src="images/img1.jpeg">
+                <img src="images/img2.jpeg">
+                <img src="images/img3.jpeg">
+                <img src="images/img4.jpeg">
+                <img src="images/img5.jpg">
+            </div>
+            <div class="btns">
+                <button id="prev_btn">O</button>
+                <button id="next_btn">O</button>
+            </div>
+            <div class="content__container">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, tenetur sunt ea illum ab aliquid
+                    sint, voluptas ipsa itaque atque labore unde? Quod, debitis facilis? Sapiente sunt quo eum
+                    asperiores!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos velit animi adipisci a commodi
+                    enim corporis, quis minus ducimus soluta fuga architecto distinctio laboriosam, eveniet quam
+                    consectetur facilis? Ea, corporis!
+                </p>
+            </div>
+        </div>
+        <footer class="footer">© Все права защищиены</footer>
+
+    </div>
+    <!-- <script type="module" src="https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js"></script> -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.3.1/firebase-app-compat.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.3.1/firebase-storage-compat.js"></script>
+    <script type="module" src="init-firebase.js"></script>
+    <script>
+        const gallery = document.querySelectorAll(" .content__gallery img"); const
+            btnPrev = document.querySelector("#prev_btn"); const btnNext = document.querySelector("#next_btn"); let counter = 0;
+        btnNext.onclick = function () {
+            gallery[counter].style.opacity = 0; counter++; if (counter > gallery.length - 1) {
+                counter = 0;
+            }
+
+            gallery[counter].style.opacity = 1;
+        };
+        btnPrev.onclick = function () {
+            gallery[counter].style.opacity = 0;
+
+            counter--;
+
+            if (counter < 0) {
+                counter = gallery.length - 1;
+            }
+
+            gallery[counter].style.opacity = 1;
+        };
+    </script>
+
+
+</body>
+
+</html>
